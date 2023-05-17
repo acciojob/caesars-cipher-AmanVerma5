@@ -14,12 +14,10 @@ function rot13(encodedStr){
    let decodedArr = []; // Your Result goes here
   // Only change code below this line
 	for(let i=0;i<encodedStr.length;i++){
-		let c=encodedStr.charCodeAt(i);
-		if(c>=65 && c<=90){
-			c=((c-65+13)%26)+65;
-			decodedArr.push(String.fromCharCode(c));
+		if(lookup[encodedStr[i]]==undefined){
+			decodedArr.push(encodedStr[i]);
 		}else{
-			decodedArr.push(String.fromCharCode(c));
+			decodedArr.push(lookup[encodedStr[i]]);
 		}
 	}
   return decodedArr;//return decodedArr
